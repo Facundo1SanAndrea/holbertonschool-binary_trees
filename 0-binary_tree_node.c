@@ -7,4 +7,24 @@
  *Return: pointer to new node.
  */
 
-binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)	
+binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
+{
+	binary_tree_t *newbranch;
+
+	newbranch = malloc(sizeof(binary_tree_t));
+
+	if (!newbranch)
+		return (NULL);
+
+	newbranch->n = value;
+
+	if (!parent)
+		newbranch->parent = NULL;
+	else
+		newbranch->parent = parent;
+
+	newbranch->left = NULL;
+	newbranch->right = NULL;
+
+	return (newbranch);
+}
